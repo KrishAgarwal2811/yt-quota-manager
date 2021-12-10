@@ -3,49 +3,53 @@
 ## QuotaManager
 **Example**  
 ```js
-const QuotaManager = require("QuotaManager");const Quota = new QuotaManager(10000, "Quotausage.json");Quota.use("Videos.insert");
+const QuotaManager = require("QuotaManager");
+const Quota = new QuotaManager(10000, "Quotausage.json");
+Quota.use("videos.insert");
 ```
 
-* [QuotaManager](#module_QuotaManager)
-    * [~QuotaManager](#module_QuotaManager..QuotaManager)
-        * [new QuotaManager(quota, fileName)](#new_module_QuotaManager..QuotaManager_new)
-        * [.fileName](#module_QuotaManager..QuotaManager+fileName)
-        * [.quota](#module_QuotaManager..QuotaManager+quota)
-        * [.left](#module_QuotaManager..QuotaManager+left)
-        * [.initTime](#module_QuotaManager..QuotaManager+initTime)
-        * [.clock](#module_QuotaManager..QuotaManager+clock)
-        * [.clockInterval](#module_QuotaManager..QuotaManager+clockInterval)
-        * [.usage](#module_QuotaManager..QuotaManager+usage)
-        * [.local](#module_QuotaManager..QuotaManager+local)
-        * [.usageValues](#module_QuotaManager..QuotaManager+usageValues)
-        * [.use()](#module_QuotaManager..QuotaManager+use) ⇒ <code>boolean</code>
-        * [.canRun()](#module_QuotaManager..QuotaManager+canRun) ⇒ <code>boolean</code>
-        * [.checkQuota()](#module_QuotaManager..QuotaManager+checkQuota)
-        * [.reset()](#module_QuotaManager..QuotaManager+reset)
-        * [.localSync()](#module_QuotaManager..QuotaManager+localSync)
-    * [~{function} localSync - Syncs the local copy of usage with current usage()](#module_QuotaManager..{function} localSync - Syncs the local copy of usage with current usage)
+- [QuotaManager](#quotamanager)
+  - [QuotaManager~QuotaManager](#quotamanagerquotamanager)
+    - [new QuotaManager(quota, fileName)](#new-quotamanagerquota-filename)
+    - [quotaManager.fileName](#quotamanagerfilename)
+    - [quotaManager.quota](#quotamanagerquota)
+    - [quotaManager.left](#quotamanagerleft)
+    - [quotaManager.initTime](#quotamanagerinittime)
+    - [quotaManager.clock](#quotamanagerclock)
+    - [quotaManager.clockInterval](#quotamanagerclockinterval)
+    - [quotaManager.usage](#quotamanagerusage)
+    - [quotaManager.local](#quotamanagerlocal)
+    - [quotaManager.usageValues](#quotamanagerusagevalues)
+    - [quotaManager.use() ⇒ <code>boolean</code>](#quotamanageruse--boolean)
+    - [quotaManager.canRun() ⇒ <code>boolean</code>](#quotamanagercanrun--boolean)
+    - [quotaManager.checkQuota()](#quotamanagercheckquota)
+    - [quotaManager.reset()](#quotamanagerreset)
+    - [quotaManager.localSync()](#quotamanagerlocalsync)
+  - [QuotaManager~{function} localSync - Syncs the local copy of usage with current usage()](#quotamanagerfunction-localsync---syncs-the-local-copy-of-usage-with-current-usage)
 
 <a name="module_QuotaManager..QuotaManager"></a>
 
 ### QuotaManager~QuotaManager
 **Kind**: inner class of [<code>QuotaManager</code>](#module_QuotaManager)  
 
-* [~QuotaManager](#module_QuotaManager..QuotaManager)
-    * [new QuotaManager(quota, fileName)](#new_module_QuotaManager..QuotaManager_new)
-    * [.fileName](#module_QuotaManager..QuotaManager+fileName)
-    * [.quota](#module_QuotaManager..QuotaManager+quota)
-    * [.left](#module_QuotaManager..QuotaManager+left)
-    * [.initTime](#module_QuotaManager..QuotaManager+initTime)
-    * [.clock](#module_QuotaManager..QuotaManager+clock)
-    * [.clockInterval](#module_QuotaManager..QuotaManager+clockInterval)
-    * [.usage](#module_QuotaManager..QuotaManager+usage)
-    * [.local](#module_QuotaManager..QuotaManager+local)
-    * [.usageValues](#module_QuotaManager..QuotaManager+usageValues)
-    * [.use()](#module_QuotaManager..QuotaManager+use) ⇒ <code>boolean</code>
-    * [.canRun()](#module_QuotaManager..QuotaManager+canRun) ⇒ <code>boolean</code>
-    * [.checkQuota()](#module_QuotaManager..QuotaManager+checkQuota)
-    * [.reset()](#module_QuotaManager..QuotaManager+reset)
-    * [.localSync()](#module_QuotaManager..QuotaManager+localSync)
+- [QuotaManager](#quotamanager)
+  - [QuotaManager~QuotaManager](#quotamanagerquotamanager)
+    - [new QuotaManager(quota, fileName)](#new-quotamanagerquota-filename)
+    - [quotaManager.fileName](#quotamanagerfilename)
+    - [quotaManager.quota](#quotamanagerquota)
+    - [quotaManager.left](#quotamanagerleft)
+    - [quotaManager.initTime](#quotamanagerinittime)
+    - [quotaManager.clock](#quotamanagerclock)
+    - [quotaManager.clockInterval](#quotamanagerclockinterval)
+    - [quotaManager.usage](#quotamanagerusage)
+    - [quotaManager.local](#quotamanagerlocal)
+    - [quotaManager.usageValues](#quotamanagerusagevalues)
+    - [quotaManager.use() ⇒ <code>boolean</code>](#quotamanageruse--boolean)
+    - [quotaManager.canRun() ⇒ <code>boolean</code>](#quotamanagercanrun--boolean)
+    - [quotaManager.checkQuota()](#quotamanagercheckquota)
+    - [quotaManager.reset()](#quotamanagerreset)
+    - [quotaManager.localSync()](#quotamanagerlocalsync)
+  - [QuotaManager~{function} localSync - Syncs the local copy of usage with current usage()](#quotamanagerfunction-localsync---syncs-the-local-copy-of-usage-with-current-usage)
 
 <a name="new_module_QuotaManager..QuotaManager_new"></a>
 
@@ -124,7 +128,9 @@ Use the use() method to log the consumption of quota
 
 **Example**  
 ```js
-new QuotaManager(10000, "QuotaUsage.json").use("videos.insert");new QuotaManager(10000, "QuotaUsage.json").use("thumbnails.set");new QuotaManager(10000, "QuotaUsage.json").use("watermarks.set");
+new QuotaManager(10000, "QuotaUsage.json").use("videos.insert");
+new QuotaManager(10000, "QuotaUsage.json").use("thumbnails.set");
+new QuotaManager(10000, "QuotaUsage.json").use("watermarks.set");
 ```
 <a name="module_QuotaManager..QuotaManager+canRun"></a>
 
@@ -198,5 +204,13 @@ Manages and keep track of Data
 
 **Example**  
 ```js
-const Quota = new QuotaManager();Quota.use("videos.insert");Quota.use("videos.insert");Quota.use("videos.update");Quota.use("videos.delete");Quota.use("watermarks.set");Quota.use("videos.insert");Quota.reset();Quota.use("videos.insert");
+const Quota = new QuotaManager();
+Quota.use("videos.insert");
+Quota.use("videos.insert");
+Quota.use("videos.update");
+Quota.use("videos.delete");
+Quota.use("watermarks.set");
+Quota.use("videos.insert");
+Quota.reset();
+Quota.use("videos.insert");
 ```

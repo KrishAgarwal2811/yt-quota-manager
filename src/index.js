@@ -6,7 +6,7 @@ const { join } = require("path");
  * @example
  * const QuotaManager = require("QuotaManager");
  * const Quota = new QuotaManager(10000, "Quotausage.json");
- * Quota.use("Videos.insert");
+ * Quota.use("videos.insert");
  */
 
 /** 
