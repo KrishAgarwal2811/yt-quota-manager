@@ -26,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/arnav-kr/yt-quota-manager/issues"
   },
-  "homepage": "https://github.com/arnav-kr/yt-quota-manager#readme"
+  "homepage": "https://github.com/arnav-kr/yt-quota-manager#readme",
+  "devDependencies": {
+    "jsdoc-to-markdown": "^7.1.0"
+  }
 }
